@@ -89,8 +89,8 @@ public class Database {
         return tracks.get(id);
     }
 
-//   TODO: Uncomment the function below after you've created the Protobuf definitions for Album in spotify.proto
-//   NOTE: Also uncomment the two imports at the top of this file for this function to work
+    //   TODO: Uncomment the function below after you've created the Protobuf definitions for Album in spotify.proto
+    //   NOTE: Also uncomment the two imports at the top of this file for this function to work
 
 //    public Album findAlbumById(int id) {
 //        try {

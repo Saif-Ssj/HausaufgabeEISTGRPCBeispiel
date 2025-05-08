@@ -7,22 +7,26 @@ sourceCompatibility = 17
 version = '1.0.0'
 compileJava.options.encoding = 'UTF-8'
 
-
 repositories {
     mavenCentral()
     mavenLocal()
 }
 
-dependencies {
-    runtimeOnly 'io.grpc:grpc-netty-shaded:1.59.0'
-    implementation 'io.grpc:grpc-protobuf:1.59.0'
-    implementation 'io.grpc:grpc-stub:1.59.0'
-    compileOnly 'org.apache.tomcat:annotations-api:6.0.53' // necessary for Java 9+
-}
-
 def grpcVersion = '1.59.0' // CURRENT_GRPC_VERSION
-def protobufVersion = '3.24.0'
+def protobufVersion = '3.25.3'
 def protocVersion = protobufVersion
+
+dependencies {
+    runtimeOnly "io.grpc:grpc-netty-shaded:${grpcVersion}"
+    compileOnly 'org.apache.tomcat:annotations-api:6.0.53'
+    implementation "io.grpc:grpc-protobuf:${grpcVersion}"
+    implementation "io.grpc:grpc-services:${grpcVersion}"
+    implementation "io.grpc:grpc-stub:${grpcVersion}"
+    // examples/advanced need this for JsonFormat
+    testImplementation 'io.grpc:grpc-inprocess:1.59.0'
+    testImplementation "io.grpc:grpc-testing:${grpcVersion}"
+    testImplementation "org.mockito:mockito-core:4.4.0"
+}
 
 protobuf {
     protoc { artifact = "com.google.protobuf:protoc:${protocVersion}" }
@@ -34,6 +38,7 @@ protobuf {
     }
 }
 
+// Inform IDEs like IntelliJ IDEA, Eclipse or NetBeans about the generated code.
 sourceSets {
     main {
         java {

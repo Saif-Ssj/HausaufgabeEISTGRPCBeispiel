@@ -1,7 +1,7 @@
 package org.spotify.client;
 
 import io.grpc.Channel;
-import org.spotify.grpc.EntitiesRequest;
+import org.spotify.grpc.*;
 
 public class SpotifyClient {
     @SuppressWarnings("unused")
