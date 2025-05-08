@@ -3,6 +3,9 @@ package org.spotify.client;
 import io.grpc.Channel;
 import org.spotify.grpc.*;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public class SpotifyClient {
     @SuppressWarnings("unused")
     private final SpotifyConnection spotifyConnection;
